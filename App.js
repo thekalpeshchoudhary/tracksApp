@@ -12,6 +12,17 @@ import TrackListScreen from './src/screens/TrackListScreen';
 import { AuthProvider } from './src/context/AuthContext';
 import SplashScreen from './src/screens/SplashScreen';
 import { LocationProvider } from './src/context/LocationContext';
+import Entypo from '@expo/vector-icons/Entypo';
+
+const trackListFlow = createStackNavigator({
+  TrackList: TrackListScreen,
+  TrackDetail: TrackDetailScreen,
+});
+
+trackListFlow.navigationOptions = {
+  title: "Tracks",
+  tabBarIcon: <Entypo name="list" size={20} color="white" />
+}
 
 const switchNavigator = createSwitchNavigator({
   splash: SplashScreen,
@@ -22,10 +33,7 @@ const switchNavigator = createSwitchNavigator({
   mainFlow: createMaterialBottomTabNavigator({
     Account: AccountScreen,
     TrackCreate: TrackCreateScreen,
-    trackListFlow: createStackNavigator({
-      TrackList: TrackListScreen,
-      TrackDetail: TrackDetailScreen,
-    }),
+    trackListFlow
   })
 }, {
   initialRouteName: 'splash'

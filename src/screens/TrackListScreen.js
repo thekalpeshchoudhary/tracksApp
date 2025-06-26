@@ -8,7 +8,6 @@ export default function TrackListScreen({ navigation }) {
 
   return (
     <View>
-      <Text h1>Tracks</Text>
       <FlatList
         data={tracks}
         renderItem={({ item }) => {

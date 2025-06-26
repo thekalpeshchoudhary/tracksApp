@@ -7,6 +7,7 @@ import { Accuracy, requestBackgroundPermissionsAsync, requestForegroundPermissio
 // import '../_mockLocation';
 import { useLocation } from '../context/LocationContext'
 import Spacer from '../components/Spacer'
+import AntDesign from '@expo/vector-icons/AntDesign';
 
 function TrackCreateScreen({ isFocused }) {
   const [err, setErr] = useState(false);
@@ -62,6 +63,13 @@ function TrackCreateScreen({ isFocused }) {
     </SafeAreaView>
   )
 }
+
+TrackCreateScreen.navigationOptions = () => {
+  return {
+    title: "Add a Track",
+    tabBarIcon: <AntDesign name="pluscircle" size={20} color="white" />
+  };
+};
 
 export default withNavigationFocus(TrackCreateScreen);
 
